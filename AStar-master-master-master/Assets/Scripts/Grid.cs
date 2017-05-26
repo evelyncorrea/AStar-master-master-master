@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Grid : MonoBehaviour
@@ -41,8 +42,7 @@ public class Grid : MonoBehaviour
         List<Position> path = PathFinder.FindPath(tiles, player.position, targetPosition);
 
 		foreach( Position position in path )
-			tiles[position.x, position.y].Highlight( true );
-        
+			tiles[position.x, position.y].Highlight( true );        
 
 		player.SetPosition( targetPosition, tileSpacing );
 	}
@@ -56,7 +56,7 @@ public class Grid : MonoBehaviour
 			for( int j = 0; j < height; j++ )
 			{
 				bool chooseWhite = ( i + j ) % 2 == 0;
-				bool isWall = System.Array.IndexOf( wallPositions, new Position { x = i, y = j } ) >= 0;
+				bool isWall = wallPositions.Any( wp => wp.x == i && wp.y == j );
                 
 				Tile tilePrefab;
 				if( isWall )

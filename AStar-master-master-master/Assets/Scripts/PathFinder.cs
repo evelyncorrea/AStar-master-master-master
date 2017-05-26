@@ -44,32 +44,57 @@ public static class PathFinder
                 Grid.Position seeker3 = new Grid.Position { x = p.x + 1, y = p.y };
                 Grid.Position seeker4 = new Grid.Position { x = p.x - 1, y = p.y };
 
+
                 if (!lista.Any(e => e.x == seeker1.x && e.y == seeker1.y ))
                 {
-                    seeker1.previous = p;
-                    Q1.Enqueue(seeker1);
-                    lista.Add(seeker1);
+                    if(seeker1.x >= 0 && seeker1.x < 10 && seeker1.y >= 0 && seeker1.y < 10)
+                    {
+                        if( !tiles[seeker1.x, seeker1.y].isWall )
+                        {
+                            seeker1.previous = p;
+                            Q1.Enqueue(seeker1);
+                            lista.Add(seeker1);
+                        }
+                   }
                 }
 
                 if (!lista.Any(e => e.x == seeker2.x && e.y == seeker2.y))
                 {
-                    seeker2.previous = p;
-                    Q1.Enqueue(seeker2);
-                    lista.Add(seeker2);
+                    if (seeker2.x >= 0 && seeker2.x < 10 && seeker2.y >= 0 && seeker2.y < 10)
+                    {
+                        if (!tiles[seeker2.x, seeker2.y].isWall)
+                        {
+                            seeker2.previous = p;
+                            Q1.Enqueue(seeker2);
+                            lista.Add(seeker2);
+                        }
+                    }
                 }
 
                 if (!lista.Any(e => e.x == seeker3.x && e.y == seeker3.y))
                 {
-                    seeker3.previous = p;
-                    Q1.Enqueue(seeker3);
-                    lista.Add(seeker3);
+                    if (seeker3.x >= 0 && seeker3.x < 10 && seeker3.y >= 0 && seeker3.y < 10)
+                    {
+                        if (!tiles[seeker3.x, seeker3.y].isWall)
+                        {
+                            seeker3.previous = p;
+                            Q1.Enqueue(seeker3);
+                            lista.Add(seeker3);
+                        }
+                    }
                 }
 
                 if (!lista.Any(e => e.x == seeker4.x && e.y == seeker4.y))
                 {
-                    seeker4.previous = p;
-                    Q1.Enqueue(seeker4);
-                    lista.Add(seeker4);
+                    if (seeker4.x >= 0 && seeker4.x < 10 && seeker4.y >= 0 && seeker4.y < 10)
+                    {
+                        if (!tiles[seeker4.x, seeker4.y].isWall)
+                        {
+                            seeker4.previous = p;
+                            Q1.Enqueue(seeker4);
+                            lista.Add(seeker4);
+                        }
+                    }
                 }
 
             }
